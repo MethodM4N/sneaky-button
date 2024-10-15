@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-// import router from '@/router';
+import router from '@/router';
 
 import PrimeVue from 'primevue/config';
 import { localeRu } from '@/assets/styles/primeVue/localeRu.js';
@@ -26,5 +26,5 @@ components.forEach((component) => {
   app.component(component.name, component);
 });
 
-// app.use(router);
+app.use(router);
 app.mount('#app');
