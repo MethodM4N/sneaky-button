@@ -3,10 +3,12 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
+    name: 'Main',
     component: () => import('@/pages/MainPage.vue')
   },
   {
     path: '/admin',
+    name: 'Admin',
     component: () => import('@/pages/QueryPage.vue')
   }
 ];
