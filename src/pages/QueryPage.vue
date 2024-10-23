@@ -18,18 +18,18 @@ const submitHandler = async () => {
   await router.replace({
     name: 'Admin',
     query: {
-      sneakyTitle: encodeURI(sneakyTitle),
-      sneakyBody: encodeURI(sneakyBody),
-      resultBody: encodeURI(resultBody)
+      sneakyTitle: btoa(encodeURI(sneakyTitle)),
+      sneakyBody: btoa(encodeURI(sneakyBody)),
+      resultBody: btoa(encodeURI(resultBody))
     }
   });
 
   router.push({
     name: 'Main',
     query: {
-      sneakyTitle: encodeURI(sneakyTitle),
-      sneakyBody: encodeURI(sneakyBody),
-      resultBody: encodeURI(resultBody)
+      sneakyTitle: btoa(encodeURI(sneakyTitle)),
+      sneakyBody: btoa(encodeURI(sneakyBody)),
+      resultBody: btoa(encodeURI(resultBody))
     }
   });
 };
@@ -39,7 +39,7 @@ onMounted(() => {
     const keys = Object.keys(route.query);
     const routeQueries = route.query;
     keys.forEach((key) => {
-      routeQueries[key] = decodeURI(routeQueries[key]);
+      routeQueries[key] = decodeURI(atob(routeQueries[key]));
     });
     queryParams.value = { ...routeQueries };
   }

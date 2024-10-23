@@ -19,9 +19,11 @@ const acceptButton = ref(null);
 const dialogRef = ref(null);
 
 onMounted(() => {
-  if (route.query?.sneakyTitle) sneakyModalFields.value.title = decodeURI(route.query.sneakyTitle);
-  if (route.query?.sneakyBody) sneakyModalFields.value.body = decodeURI(route.query.sneakyBody);
-  if (route.query?.resultBody) resultModalText.value = decodeURI(route.query.resultBody);
+  if (route.query?.sneakyTitle)
+    sneakyModalFields.value.title = decodeURI(atob(route.query.sneakyTitle));
+  if (route.query?.sneakyBody)
+    sneakyModalFields.value.body = decodeURI(atob(route.query.sneakyBody));
+  if (route.query?.resultBody) resultModalText.value = decodeURI(atob(route.query.resultBody));
 });
 
 const changeButtonLocation = () => {
