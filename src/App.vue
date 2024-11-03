@@ -10,9 +10,9 @@ const { t, locale } = useI18n({ useScope: 'global' });
 const primevue = usePrimeVue();
 
 onMounted(() => {
-  if (window.navigator?.language?.length) {
-    setHtmlLangAttr('es');
-    locale.value = 'es';
+  if (!window.navigator?.language?.length) {
+    setHtmlLangAttr('en');
+    locale.value = 'en';
     return;
   }
 
