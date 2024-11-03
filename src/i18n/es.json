@@ -1,0 +1,14 @@
+{
+  "inputLabels": {
+    "sneakyTitle": "Título Inicial",
+    "sneakyBody": "Cuerpo Inicial",
+    "resultBody": "Cuerpo del Resultado"
+  },
+  "buttonLabels": {
+    "sneakySubmit": "Crear Ventanas",
+    "resultSubmit": "Súper!",
+    "accept": "Sí",
+    "reject": "No"
+  },
+  "htmlTitle": "Tengo una Pregunta para Ti"
+}

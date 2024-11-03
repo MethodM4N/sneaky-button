@@ -1,0 +1,14 @@
+{
+  "inputLabels": {
+    "sneakyTitle": "Initial Title",
+    "sneakyBody": "Initial Body",
+    "resultBody": "Result Body"
+  },
+  "buttonLabels": {
+    "sneakySubmit": "Create Windows",
+    "resultSubmit": "Super!",
+    "accept": "Yes",
+    "reject": "No"
+  },
+  "htmlTitle": "I Have a Question for You"
+}

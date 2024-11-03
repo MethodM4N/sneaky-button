@@ -1,5 +1,50 @@
 <script setup>
+import { onMounted, watchEffect } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { usePrimeVue } from 'primevue/config';
+import { primeVueLocale } from '@/assets/styles/primeVue/locale.js';
+
 import GithubIcon from '@/components/GithubIcon/GithubIcon.vue';
+
+const { t, locale } = useI18n({ useScope: 'global' });
+const primevue = usePrimeVue();
+
+onMounted(() => {
+  if (window.navigator?.language?.length) {
+    setHtmlLangAttr('es');
+    locale.value = 'es';
+    return;
+  }
+
+  switch (window.navigator.language.split('-')[0]) {
+    case 'ru':
+      setHtmlLangAttr('ru');
+      locale.value = 'ru';
+      break;
+
+    case 'en':
+      setHtmlLangAttr('en');
+      locale.value = 'en';
+      break;
+
+    case 'es':
+      setHtmlLangAttr('es');
+      locale.value = 'es';
+      break;
+
+    default:
+      setHtmlLangAttr('en');
+      locale.value = 'en';
+      break;
+  }
+});
+
+const setHtmlLangAttr = (language) => {
+  document.documentElement.setAttribute('lang', language);
+  primevue.config.locale = primeVueLocale[language];
+};
+
+watchEffect(() => (document.title = t('htmlTitle')), { deep: true });
 </script>
 
 <template>

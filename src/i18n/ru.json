@@ -1,0 +1,14 @@
+{
+  "inputLabels": {
+    "sneakyTitle": "Стартовый заголовок",
+    "sneakyBody": "Стартовое тело",
+    "resultBody": "Тело результата"
+  },
+  "buttonLabels": {
+    "sneakySubmit": "Создать окна",
+    "resultSubmit": "Супер!",
+    "accept": "Да",
+    "reject": "Нет"
+  },
+  "htmlTitle": "У меня к тебе вопрос"
+}

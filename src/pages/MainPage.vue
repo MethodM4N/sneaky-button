@@ -1,8 +1,10 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 
 const route = useRoute();
+const { t } = useI18n({ useScope: 'global' });
 
 const sneakyModalFields = ref({
   title: 'Опрос',
@@ -77,14 +79,14 @@ const onResultModal = () => {
           class="min-w-[80px] !absolute bottom-5 right-28"
           type="button"
           autofocus
-          label="Да"
+          :label="t('buttonLabels.accept')"
           @click="onSneakyModal" />
         <Button
           id="my-button"
           :style="buttonPosition"
           class="min-w-[70px] !cursor-default !absolute bottom-5 right-7"
           type="button"
-          label="Нет"
+          :label="t('buttonLabels.reject')"
           severity="danger"
           @mouseover="changeButtonLocation"
           @click="changeButtonLocation" />
@@ -106,7 +108,12 @@ const onResultModal = () => {
 
     <template #footer>
       <div class="flex gap-4 w-full justify-center">
-        <Button class="min-w-[80px]" type="button" autofocus label="Ок" @click="onResultModal" />
+        <Button
+          class="min-w-[80px]"
+          type="button"
+          autofocus
+          :label="t('buttonLabels.resultSubmit')"
+          @click="onResultModal" />
       </div>
     </template>
   </Dialog>

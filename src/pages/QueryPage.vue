@@ -1,9 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 
 const route = useRoute();
 const router = useRouter();
+const { t } = useI18n({ useScope: 'global' });
 
 const queryParams = ref({
   sneakyTitle: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -52,21 +54,21 @@ onMounted(() => {
     @submit.prevent="submitHandler">
     <FloatLabel class="w-full">
       <Textarea class="w-full" v-model="queryParams.sneakyTitle" rows="1" />
-      <label>Бегающий заголовок</label>
+      <label>{{ t('inputLabels.sneakyTitle') }}</label>
     </FloatLabel>
 
     <FloatLabel class="w-full">
       <Textarea class="w-full" v-model="queryParams.sneakyBody" autoResize />
-      <label>Бегающее тело</label>
+      <label>{{ t('inputLabels.sneakyBody') }}</label>
     </FloatLabel>
 
     <FloatLabel class="w-full">
       <Textarea class="w-full" v-model="queryParams.resultBody" autoResize />
-      <label>Тело результата</label>
+      <label>{{ t('inputLabels.resultBody') }}</label>
     </FloatLabel>
 
     <div class="w-full flex justify-center">
-      <Button class="min-w-[80px]" label="Создать окна" type="submit" />
+      <Button class="min-w-[80px]" :label="t('buttonLabels.sneakySubmit')" type="submit" />
     </div>
   </form>
 </template>
